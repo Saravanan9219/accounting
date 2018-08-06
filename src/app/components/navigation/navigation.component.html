@@ -1,0 +1,16 @@
+<!-- ToolBar-->
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-button>Accounting</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav opened mode="side">
+    <app-navigation-side-pane (itemSelected)='itemSelected($event)'>
+    </app-navigation-side-pane>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-main [currentItem]='currentItem'></app-main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

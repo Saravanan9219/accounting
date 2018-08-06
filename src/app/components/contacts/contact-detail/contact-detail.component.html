@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Edit Contact {{contact.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <label>Name:
+      <input [(ngModel)]='contact.name' placeholder='name'>
+    </label>
+    <label>Address:
+      <input [(ngModel)]='contact.address' placeholder='address'>
+    </label>
+    <button mat-button (click)='saveContact()'>Save</button>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,42 @@
+<button mat-button (click)='newItem()'>Add Product</button>
+<table class='main' mat-table [dataSource]='items'>
+  <!-- id -->
+  <ng-container matColumnDef='id'>
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef='let product'>{{product.id}}</td>
+  </ng-container>
+
+  <!-- name -->
+  <ng-container matColumnDef='name'>
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef='let product'>{{product.name}}</td>
+  </ng-container>
+
+  <!-- description -->
+  <ng-container matColumnDef='description'>
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef='let product'>{{product.description}}</td>
+  </ng-container>
+
+  <!-- Unit -->
+  <ng-container matColumnDef='unit'>
+    <th mat-header-cell *matHeaderCellDef>Unit</th>
+    <td mat-cell *matCellDef='let product'>{{product.unit}}</td>
+  </ng-container>
+
+  <!-- Price -->
+  <ng-container matColumnDef='price'>
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef='let product'>{{product.price}}</td>
+  </ng-container>
+
+  <!-- Tax -->
+  <ng-container matColumnDef='tax'>
+    <th mat-header-cell *matHeaderCellDef>tax</th>
+    <td mat-cell *matCellDef='let product'>{{product.tax.name}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef='columnsToDisplay'></tr>
+  <tr mat-row (click)='selectRow(row)' *matRowDef='let row; columns: columnsToDisplay'></tr>
+</table>
+<app-tax-detail (reloadTaxes)='reloadItems($event)' *ngIf='selectedItem && showEdit' [tax]='selectedItem'></app-tax-detail>

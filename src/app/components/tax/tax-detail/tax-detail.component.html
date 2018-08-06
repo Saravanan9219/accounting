@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Edit Tax {{tax.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <label>Name:
+      <input [(ngModel)]='tax.name' placeholder='name'>
+    </label>
+    <label>Rate:
+      <input type=number [(ngModel)]='tax.rate' placeholder='rate'>
+    </label>
+    <button mat-button (click)='saveTax()'>Save</button>
+  </mat-card-content>
+</mat-card>
